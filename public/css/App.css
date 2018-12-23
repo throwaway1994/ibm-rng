@@ -1,0 +1,18 @@
+.inner-panel {
+    margin: 3rem 1.5rem;
+}
+
+.background {
+    background: #106C9E;
+    color: #FFF;
+}
+
+.row {
+    margin-left: 0 !important;
+}
+
+@media screen and (max-width: 767px) {
+    #select-list, #generate-btn {
+        width: 40% !important;
+    }
+}
