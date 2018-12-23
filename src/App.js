@@ -68,20 +68,30 @@ class App extends Component {
     this.setState({ listIndex : event.target.value });
   }
 
+  // Show the appropriate help/result text underneath the generate button
+  showResultText() {
+    if (this.state.number === -1) {
+      return <h2 className="mt-4 text-center">Select a list above and click the generate button to retrieve your random number!</h2>;
+    }
+    return <h2 className="mt-4 text-center">Your randomly generated number is {this.state.number}.</h2>;
+  }
+
   // Render the component
   render() {
     return(
       <div className="App container background">
         <main className="main" role="main">
-          <div className="inner-panel">
-            <h1 className="text-center mb-4">IBM Application - RNG</h1>
-            <h2>Available lists:</h2>
-            {this.showLists()}
-            <div className="row">
-              {this.createSelect()}
-              <button id="generate-btn" className="btn btn-primary col-md-2" onClick={this.handleGeneration}>Generate</button>
+          <div className="offset-md-2 col-md-8 offset-lg-3 col-lg-6">
+            <h1 className="text-center mt-4 mb-4">IBM Application - RNG</h1>
+            <div className="offset-md-2 offset-lg-3">
+              <h2>Available lists:</h2>
+              {this.showLists()}
+              <div className="row">
+                {this.createSelect()}
+                <button id="generate-btn" className="btn btn-primary col-md-4" onClick={this.handleGeneration}>Generate</button>
+              </div>
             </div>
-            <h2 className="mt-4 text-center">Your randomly generated number is {this.state.number}.</h2>
+            {this.showResultText()}
           </div>
         </main>
       </div>
