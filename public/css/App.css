@@ -7,12 +7,15 @@
     color: #FFF;
 }
 
-.row {
-    margin-left: 0 !important;
+@media screen and (min-width: 768px) {
+    .row {
+        margin-left: 0 !important;
+    }
 }
 
 @media screen and (max-width: 767px) {
     #select-list, #generate-btn {
-        width: 40% !important;
+        margin-right: 0 !important;
+        margin-bottom: 1rem;
     }
 }
