@@ -99,6 +99,8 @@ class App extends Component {
   }
 
   // Chooses a random element from the selected list and updates the number state on the front end
+  // Time complexity: O(1) since the weighted array is already created, time is only needed
+  //                  to access the element in the array
   handleGeneration() {
     const index = randomInt(0, this.weightedArrays[this.state.listIndex].length);
     const value = this.weightedArrays[this.state.listIndex][index];
@@ -133,6 +135,10 @@ export function randomInt(min, max) {
  * Generates the weighted array containing the number of each element based on their probability multiplied by 100.
  * Ex. If the list had value [1, 2, 3] and the weights array had value [0.25, 0.25, 0.5], there should be 25 1s, 25 2s,
  * and 50 3s in the generated weighted list this function returns.
+ * 
+ * Time complexity:  O(n^2) since the array is created by iterating over the weights array and
+ *                   generating weights[i] * 100 elements to get a normalized amount in the resulting array
+ * Space complexity: O(n) since the amount of space required depends on the number of elements going into the array
  * 
  * @param {array} list an array of elements
  * @param {array} weights an array of values representing the probability of the associated element being chosen
